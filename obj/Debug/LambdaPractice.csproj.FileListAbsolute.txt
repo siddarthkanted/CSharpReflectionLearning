@@ -1,0 +1,6 @@
+C:\Practice\LambdaPractice\LambdaPractice\bin\Debug\LambdaPractice.exe.config
+C:\Practice\LambdaPractice\LambdaPractice\bin\Debug\LambdaPractice.exe
+C:\Practice\LambdaPractice\LambdaPractice\bin\Debug\LambdaPractice.pdb
+C:\Practice\LambdaPractice\LambdaPractice\obj\Debug\LambdaPractice.exe
+C:\Practice\LambdaPractice\LambdaPractice\obj\Debug\LambdaPractice.pdb
+C:\Practice\LambdaPractice\LambdaPractice\obj\Debug\LambdaPractice.csprojResolveAssemblyReference.cache
