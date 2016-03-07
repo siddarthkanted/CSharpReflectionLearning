@@ -26,11 +26,18 @@ namespace LambdaPractice
                 Console.WriteLine("IsPrimitive: " + propertyInfo.PropertyType.IsPrimitive);
                 Console.WriteLine("IsCollection: " + IsPropertyAnArray(propertyInfo));
                 Console.WriteLine("IsString: " + IsPropertyAString(propertyInfo));
+                Console.WriteLine("IsCustomAttribute: " + ContainsCustomAnnotation(propertyInfo));
                 if (IsPropertyAnArray(propertyInfo))
                 {
                     Console.WriteLine("=======ITERATE ARRAY========");
                     IterateArray(propertyInfo, orionObject);
 
+                }
+                if (ContainsCustomAnnotation(propertyInfo))
+                {
+                    Console.WriteLine("=======ITERATE Custom Attributes========");
+                    IEnumerable<OrionAnnotation> customAttributes = GetCustomAttribute<OrionAnnotation>(propertyInfo);
+                    customAttributes.ToList().ForEach(x => Console.WriteLine(x.XmlNodeName));
                 }
                 Console.WriteLine("===============");
             }
@@ -59,6 +66,18 @@ namespace LambdaPractice
             return property.PropertyType == typeof(string);
         }
 
+        public bool ContainsCustomAnnotation(PropertyInfo property)
+        {
+            IEnumerable<Attribute> customAttributes = property.GetCustomAttributes();
+            return customAttributes.Any();
+        }
+
+
+        public IEnumerable<T> GetCustomAttribute<T>(PropertyInfo property)
+        {
+            Object[] customAttributes = property.GetCustomAttributes(typeof(T), true); 
+            return customAttributes.OfType<T>();
+        }
 
 
 

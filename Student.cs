@@ -14,6 +14,8 @@ namespace LambdaPractice
         public string StudentId { get; set; }
      
         public string StudentName { get; set; }
+
+        [OrionAnnotation(XmlNodeName = "orionAnnotate")]
         public Address[] Address { get; set; }
 
         public Student(string studentId, string studentName, params Address[] address)
